@@ -2,6 +2,7 @@
 <resources>
     <color name="almostBlack">#222</color>
     <color name="red">#d10f2c</color>
+    <color name="veryRed">#FF0000</color>
     <color name="teal">#09ebeb</color>
     <color name="darkBlue">#02152e</color>
     <color name="orange">#d16d08</color>

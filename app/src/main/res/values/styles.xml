@@ -13,6 +13,7 @@
         <item name="android:background">@color/red</item>
         <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/teal</item>
+        <item name="android:onClick">operationAction</item>
     </style>
 
     <style name="buttonOperatorSet2">
@@ -22,6 +23,7 @@
         <item name="android:background">@color/orange</item>
         <item name="android:textSize">40sp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">operationAction</item>
     </style>
 
 </resources>

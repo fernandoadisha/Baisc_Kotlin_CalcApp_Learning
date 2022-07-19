@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    var answer: Int = 0
+    var answer: Float = 0F
 
     var numOne: Float = 0F
     var numTwo: Float = 0F
@@ -24,29 +26,79 @@ class MainActivity : AppCompatActivity() {
         NumOneTV.text.clear()
         NumTwoTV.text.clear()
         ResultsTV.text=""
+        clearVar()
     }
 
     fun operationAction(view: View) {
         if(view is Button){
             when(view.text){
                 "x"-> {
-                    numberValidation()
+                    if(numberValidation()){
+                        answer=numOne*numTwo
+                        ResultsTV.text=answer.toString()
+                    }
+                    else{
+                        clearVar()
+                    }
                 }
                 "/"->{
-                    numberValidation()
+                    if(numberValidation()){
+                        answer=numOne/numTwo
+                        ResultsTV.text=answer.toString()
+                    }
+                    else{
+                        clearVar()
+                    }
                 }
                 "-"->{
-                    numberValidation()
+                    if(numberValidation()){
+                        answer=numOne-numTwo
+                        ResultsTV.text=answer.toString()
+                    }
+                    else{
+                        clearVar()
+                    }
                 }
                 else -> {
-                    numberValidation()
+                    if(numberValidation()){
+                        answer=numOne+numTwo
+                        ResultsTV.text=answer.toString()
+                    }
+                    else{
+                        clearVar()
+                    }
                 }
             }
         }
         
     }
 
-    private fun numberValidation() {
-        numOne = (NumOneTV.text).toFloat()
+    private fun numberValidation(): Boolean {
+        if(NumOneTV.text.toString().isNotEmpty() && NumTwoTV.text.toString().isNotEmpty()){
+            val numOneHolder = NumOneTV.text.toString()
+            val numTwoHolder = NumTwoTV.text.toString()
+            if(numOneHolder.isDigitsOnly() && numTwoHolder.isDigitsOnly()){
+                numOne = numOneHolder.toFloat()
+                numTwo = numTwoHolder.toFloat()
+                return true
+            }
+            else {
+                Toast.makeText(this, "Input Should only be Numbers", Toast.LENGTH_SHORT).show()
+                return false
+            }
+
+        }
+        else {
+            Toast.makeText(this,"Fill all Above", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+
+    }
+
+    private fun clearVar(){
+        numOne=0F
+        numTwo=0F
+        ResultsTV.text=""
     }
 }

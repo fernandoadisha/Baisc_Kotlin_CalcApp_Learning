@@ -34,12 +34,12 @@
             android:id="@+id/NumTwoTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:hint="Number 02"
             android:lines="2"
             android:maxLines="2"
+            android:text=""
             android:textAlignment="textEnd"
             android:textSize="20sp"
-            android:hint="Number 02"
             app:layout_constraintBottom_toTopOf="@id/ResultsTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,17 +56,54 @@
             android:textAlignment="textEnd"
             android:textSize="40sp"
             android:hint="Answer"
-            app:layout_constraintBottom_toBottomOf  ="parent"
+            app:layout_constraintBottom_toTopOf="@id/memoryTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/NumTwoTV" />
+
+        <TextView
+            android:id="@+id/memoryTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLines="2"
+            android:padding="10dp"
+            android:text=""
+            android:hint="Memory"
+            android:textAlignment="textEnd"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.975"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ResultsTV" />
+        />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5">
+        android:layout_weight="0.25">
+
+        <Button
+            style="@style/buttonOperatorSet1"
+            android:background="@color/lightOrange"
+            android:text="M+"
+            android:onClick="memoryPlusAction"/>
+
+        <Button
+            style="@style/buttonOperatorSet1"
+            android:background="@color/darkOrange"
+            android:text="M-"
+            android:onClick="memoryMinusAction"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3">
 
         <Button
             style="@style/buttonOperatorSet1"

@@ -77,7 +77,6 @@
             app:layout_constraintHorizontal_bias="0.975"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ResultsTV" />
-        />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -90,13 +89,17 @@
             style="@style/buttonOperatorSet1"
             android:background="@color/lightOrange"
             android:text="M+"
-            android:onClick="memoryPlusAction"/>
+            android:onClick="memoryPlusAction"
+            android:layout_margin="2dp"/>
+
 
         <Button
             style="@style/buttonOperatorSet1"
             android:background="@color/darkOrange"
             android:text="M-"
-            android:onClick="memoryMinusAction"/>
+            android:onClick="memoryMinusAction"
+            android:layout_margin="2dp"/>
+
 
     </LinearLayout>
 
